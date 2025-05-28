@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notely - Simple Note Taking App</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Notely</h1>
+        <p>A simple note-taking application</p>
+      </header>
+
+      <div class="note-form">
+        <input type="text" id="note-title" placeholder="Note Title" />
+        <textarea id="note-content" placeholder="Note Content"></textarea>
+        <button id="save-note">Save Note</button>
+      </div>
+
+      <div class="notes-container" id="notes-container">
+        <!-- Notes will be added here dynamically -->
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
