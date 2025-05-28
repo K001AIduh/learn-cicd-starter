@@ -4,7 +4,7 @@ on:
   pull_request:
     branches: [main]
   push:
-    branches: [main, addtests]
+    branches: [main]
 
 jobs:
   tests:
@@ -15,9 +15,10 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v4
 
-      - name: Simple test
-        run: |
-          echo "Running basic verification tests..."
-          echo "Repository structure verified."
-          echo "All tests passed successfully!"
-          exit 0
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.22.0'
+
+      - name: Run unit tests
+        run: go test ./... -cover
