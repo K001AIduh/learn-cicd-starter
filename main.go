@@ -1,16 +1,25 @@
 package main
 
 import (
+	"database/sql"
 	"embed"
 	"io"
 	"log"
 	"net/http"
 	"os"
 
-	"github.com/go-chi/chi/v5"
+	"github.com/go-chi/chi"
 	"github.com/go-chi/cors"
 	"github.com/joho/godotenv"
+
+	"github.com/bootdotdev/learn-cicd-starter/internal/database"
+
+	_ "github.com/tursodatabase/libsql-client-go/libsql"
 )
+
+type apiConfig struct {
+	DB *database.Queries
+}
 
 //go:embed static/*
 var staticFiles embed.FS
@@ -23,8 +32,25 @@ func main() {
 
 	port := os.Getenv("PORT")
 	if port == "" {
-		port = "8080"
-		log.Printf("PORT environment variable not set, defaulting to %s", port)
+		log.Fatal("PORT environment variable is not set")
+	}
+
+	apiCfg := apiConfig{}
+
+	// https://github.com/libsql/libsql-client-go/#open-a-connection-to-sqld
+	// libsql://[your-database].turso.io?authToken=[your-auth-token]
+	dbURL := os.Getenv("DATABASE_URL")
+	if dbURL == "" {
+		log.Println("DATABASE_URL environment variable is not set")
+		log.Println("Running without CRUD endpoints")
+	} else {
+		db, err := sql.Open("libsql", dbURL)
+		if err != nil {
+			log.Fatal(err)
+		}
+		dbQueries := database.New(db)
+		apiCfg.DB = dbQueries
+		log.Println("Connected to database!")
 	}
 
 	router := chi.NewRouter()
@@ -51,6 +77,14 @@ func main() {
 	})
 
 	v1Router := chi.NewRouter()
+
+	if apiCfg.DB != nil {
+		v1Router.Post("/users", apiCfg.handlerUsersCreate)
+		v1Router.Get("/users", apiCfg.middlewareAuth(apiCfg.handlerUsersGet))
+		v1Router.Get("/notes", apiCfg.middlewareAuth(apiCfg.handlerNotesGet))
+		v1Router.Post("/notes", apiCfg.middlewareAuth(apiCfg.handlerNotesCreate))
+	}
+
 	v1Router.Get("/healthz", handlerReadiness)
 
 	router.Mount("/v1", v1Router)
