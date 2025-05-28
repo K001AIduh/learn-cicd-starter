@@ -1,6 +1,6 @@
 # Notely
 
-![Tests Status](https://github.com/K001AIduh/learn-cicd-starter/actions/workflows/ci.yml/badge.svg)
+![Tests](https://github.com/K001AIduh/learn-cicd-starter/actions/workflows/ci.yml/badge.svg)
 
 A simple notes application built with vanilla JavaScript, HTML, and CSS.
 
