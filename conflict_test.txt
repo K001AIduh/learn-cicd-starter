@@ -1,0 +1,3 @@
+This is content from the main branch.
+This line will conflict when merged.
+More content from main branch.
