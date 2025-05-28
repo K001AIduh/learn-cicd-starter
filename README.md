@@ -1,3 +1,3 @@
-# megacorp | good marketing example
+# Boot.Dev Assignment
 
-Unite marketing, sales, and service in a single app. Try MegaCorp Starter Suite today. There's nothing to install. No credit card required. Get started today.
+This repository contains solutions for the Boot.Dev assignments.
