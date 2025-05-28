@@ -96,3 +96,8 @@ func main() {
 	log.Printf("Serving on port: %s\n", port)
 	log.Fatal(srv.ListenAndServe())
 }
+
+// unusedFunction is intentionally unused to test staticcheck
+func unusedFunction() string {
+	return "This function is not used anywhere"
+}
