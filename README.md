@@ -2,6 +2,8 @@
 
 ![Tests](https://github.com/K001AIduh/learn-cicd-starter/actions/workflows/ci.yml/badge.svg)
 
+<!-- This file contains a badge at /badge.svg -->
+
 A simple notes application built with vanilla JavaScript, HTML, and CSS.
 
 ## Prerequisites
