@@ -1,5 +1,5 @@
 # Notely
 
-![Tests](https://github.com/K001AIduh/Boot.Dev/actions/workflows/ci.yml/badge.svg)
+![Tests](https://github.com/<OWNER>/<REPOSITORY>/actions/workflows/<WORKFLOW_FILE>/badge.svg)
 
 This README uses a badge from /badge.svg
