@@ -1,6 +1,6 @@
 # Notely
 
-![Tests](https://github.com/K001AIduh/Boot.Dev/actions/workflows/ci.yml/badge.svg?branch=main)
+![CI Status](https://github.com/K001AIduh/Boot.Dev/actions/workflows/ci.yml/badge.svg?branch=main&event=push)
 
 This README uses a badge from /badge.svg
 
