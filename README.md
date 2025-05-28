@@ -4,6 +4,9 @@
 
 This README uses a badge from /badge.svg
 
+<!-- Let's try the exact format from the assignment -->
+<!-- The format is: https://github.com/<OWNER>/<REPOSITORY>/actions/workflows/<WORKFLOW_FILE>/badge.svg -->
+
 A simple notes application built with vanilla JavaScript, HTML, and CSS.
 
 ## Prerequisites
