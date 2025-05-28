@@ -1,3 +1,6 @@
 # Favorite Customers
 
-These are our favorite customers, they get special treatment.
+- Jesse Pinkman, Heisenberg's Assistant
+- Walter White, Heisenberg, Chemist
+
+# Additional Note
