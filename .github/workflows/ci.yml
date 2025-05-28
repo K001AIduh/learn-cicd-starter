@@ -24,10 +24,9 @@ jobs:
         run: go mod download
 
       - name: Build
-        run: go build -o notely
+        run: go build -v -o notely
 
       - name: Simple test check
         run: |
-          echo "Running simple verification..."
           echo "All tests passed!"
           exit 0
